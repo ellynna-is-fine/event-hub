@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub - Sự kiện</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="events-page">
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html"> <img class="logo" src="LOGO Web thiết kế sự kiện2.png">
+            </a>
+
+            <form class="search-box" action="events.html" method="get">
+                <input type="search" name="keyword" placeholder="Tìm kiếm sự kiện, địa điểm...">
+                <button type="submit">&#128269;</button>
+            </form>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a class="nav-button active" href="events.html">Sự kiện</a></li>
+                    <li><a class="nav-button" href="organizer-create.html">Tạo sự kiện</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" aria-label="Thông báo">
+                    <img class="icon-button notice-button" src="Chuông.png">
+                </a>
+                <a href="login.html" class="login-button">Đăng nhập</a>
+                <div class="language-switch">
+                    <a href="#" class="icon-button highlight" aria-label="Ngôn ngữ" style="color: yellow;">&#9733;</a>
+                    <span class="language-caret" style="font-size: 30px;">&#9662;</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="ev-main">
+        <section class="ev-layout">
+            <aside class="ev-sidebar">
+                <form class="ev-filter-form" action="#">
+                    <h1 class="ev-sidebar-title">Bộ lọc</h1>
+
+                    <div class="ev-filter-group">
+                        <h2 class="ev-filter-heading">Danh mục</h2>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="category" value="cong-nghe">
+                            <span class="ev-option-label">Công nghệ</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="category" value="ca-nhac">
+                            <span class="ev-option-label">Ca nhạc</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="category" value="giao-duc">
+                            <span class="ev-option-label">Giáo dục</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="category" value="nghe-thuat">
+                            <span class="ev-option-label">Nghệ thuật</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="category" value="the-thao">
+                            <span class="ev-option-label">Thể thao</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="category" value="am-thuc">
+                            <span class="ev-option-label">Ẩm thực</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="category" value="hai-kich">
+                            <span class="ev-option-label">Hài kịch</span>
+                        </label>
+                    </div>
+
+                    <div class="ev-filter-group">
+                        <h2 class="ev-filter-heading">Tỉnh / Thành phố</h2>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="city" value="ha-noi">
+                            <span class="ev-option-label">Hà Nội</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="city" value="ho-chi-minh">
+                            <span class="ev-option-label">TP. Hồ Chí Minh</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="city" value="da-nang">
+                            <span class="ev-option-label">Đà Nẵng</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="city" value="online">
+                            <span class="ev-option-label">Online</span>
+                        </label>
+                    </div>
+
+                    <div class="ev-filter-group">
+                        <h2 class="ev-filter-heading">Khoảng thời gian</h2>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="time" value="hom-nay">
+                            <span class="ev-option-label">Hôm nay</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="time" value="cuoi-tuan">
+                            <span class="ev-option-label">Cuối tuần này</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="time" value="thang-nay">
+                            <span class="ev-option-label">Tháng này</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="time" value="thang-toi">
+                            <span class="ev-option-label">Tháng tới</span>
+                        </label>
+                    </div>
+
+                    <div class="ev-filter-group">
+                        <h2 class="ev-filter-heading">Khoảng giá (VNĐ)</h2>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="price" value="mien-phi">
+                            <span class="ev-option-label">Miễn phí</span>
+                        </label>
+
+                        <div class="ev-price-range">
+                            <input type="number" name="price_min" placeholder="">
+                            <span class="ev-price-dash"></span>
+                            <input type="number" name="price_max" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="ev-filter-group">
+                        <h2 class="ev-filter-heading">Hình thức</h2>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="format" value="offline">
+                            <span class="ev-option-label">Trực tiếp (Offline)</span>
+                        </label>
+
+                        <label class="ev-filter-option">
+                            <input type="checkbox" name="format" value="online">
+                            <span class="ev-option-label">Trực tuyến (Online)</span>
+                        </label>
+                    </div>
+
+                    <div class="ev-filter-actions">
+                        <button type="submit" class="ev-apply-btn">Áp dụng bộ lọc</button>
+                        <button type="reset" class="ev-reset-btn">
+                            <span aria-hidden="true">&#8634;</span>
+                            <span>Đặt lại</span>
+                        </button>
+                    </div>
+                </form>
+            </aside>
+
+            <section class="ev-content">
+                <div class="ev-toolbar">
+                    <p class="ev-results-text">Hiển thị 14 sự kiện</p>
+
+                    <div class="ev-sort-box">
+                        <label for="ev-sort" class="ev-sort-label">Sắp xếp</label>
+                        <select id="ev-sort" name="sort">
+                            <option selected>Mới nhất</option>
+                            <option>Sắp diễn ra</option>
+                            <option>Phổ biến nhất</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ev-grid">
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="anh1.jpg" alt="TECH SUMMIT HÀ NỘI 2025">
+                            <span class="ev-card-badge ev-card-badge-date">25/04</span>
+                            <span class="ev-card-badge ev-card-badge-type">Miễn phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Công nghệ</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">TECH SUMMIT HÀ NỘI 2025</a></h2>
+                            <p class="ev-card-meta">25/04 · 08:00</p>
+                            <p class="ev-card-location">Melia Hotel, HN</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">320/500</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 64%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="anh2.jpg" alt="TRẠM YÊU CONCERT 4 | BĂNG QUA ĐẠI DƯƠNG">
+                            <span class="ev-card-badge ev-card-badge-date">04/04</span>
+                            <span class="ev-card-badge ev-card-badge-type">Có phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Ca nhạc</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">TRẠM YÊU CONCERT 4 | BĂNG QUA ĐẠI DƯƠNG</a></h2>
+                            <p class="ev-card-meta">04/04 · 19:30</p>
+                            <p class="ev-card-location">TTTM The LINC</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text ev-card-progress-text-sold">Hết vé</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 100%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="anh3.jpg" alt="[Hà Nội] Những Thành Phố Mơ Màng Summer 2026">
+                            <span class="ev-card-badge ev-card-badge-date">20/04</span>
+                            <span class="ev-card-badge ev-card-badge-type">Có phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Ca nhạc</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">[Hà Nội] Những Thành Phố Mơ Màng Summer 2026</a></h2>
+                            <p class="ev-card-meta">20/06 · 18:00</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">1320/1500</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 88%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="anh4.jpg" alt="GAI HOME CONCERT">
+                            <span class="ev-card-badge ev-card-badge-date">26/04</span>
+                            <span class="ev-card-badge ev-card-badge-type">Có phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Ca nhạc</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">GAI HOME CONCERT</a></h2>
+                            <p class="ev-card-meta">26/04 · 18:30</p>
+                            <p class="ev-card-location">VINHOMES OCEAN PARK 3</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text ev-card-progress-text-sold">Hết vé</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 100%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="anh5.jpg" alt="SKNT TRƯƠNG HÙNG MINH : LỤA MÀU">
+                            <span class="ev-card-badge ev-card-badge-date">03/05</span>
+                            <span class="ev-card-badge ev-card-badge-type">Miễn phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Nghệ thuật</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">SKNT TRƯƠNG HÙNG MINH : LỤA MÀU</a></h2>
+                            <p class="ev-card-meta">03/05 · 19:30</p>
+                            <p class="ev-card-location">SÂN KHẤU NT TRƯƠNG HÙNG MINH</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">220/500</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 44%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="anh6.jpg" alt="Hài kịch: Đảo Hoa Hậu">
+                            <span class="ev-card-badge ev-card-badge-date">25/04</span>
+                            <span class="ev-card-badge ev-card-badge-type">Có phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Hài kịch</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">Hài kịch: Đảo Hoa Hậu</a></h2>
+                            <p class="ev-card-meta">12/04 · 19:00</p>
+                            <p class="ev-card-location">Nhà Hát Bến Thành</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">654/800</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 81.75%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="https://images.tkbcdn.com/2/608/332/ts/ds/10/f1/b2/a317ce6bb7f43ac5ea637e795d66623c.jpg" alt="Workshop kỹ năng học tập thông minh">
+                            <span class="ev-card-badge ev-card-badge-date">10/05</span>
+                            <span class="ev-card-badge ev-card-badge-type">Miễn phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Giáo dục</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">WORKSHOP KỸ NĂNG HỌC TẬP THÔNG MINH</a></h2>
+                            <p class="ev-card-meta">10/05 · 08:30</p>
+                            <p class="ev-card-location">Đại học Quốc gia, Hà Nội</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">210/300</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 70%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="https://images.tkbcdn.com/2/608/332/ts/ds/74/ca/18/173014220d7b30fb44d26955187b13e9.png" alt="Lớp học tiếng Anh giao tiếp online">
+                            <span class="ev-card-badge ev-card-badge-date">18/05</span>
+                            <span class="ev-card-badge ev-card-badge-type">Miễn phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Giáo dục</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">LỚP HỌC TIẾNG ANH GIAO TIẾP ONLINE</a></h2>
+                            <p class="ev-card-meta">18/05 · 19:30</p>
+                            <p class="ev-card-location">Online</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">480/600</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 80%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="https://i.pinimg.com/1200x/af/5f/69/af5f691412e96a393d7212885090273a.jpg" alt="Giải chạy đêm thành phố biển">
+                            <span class="ev-card-badge ev-card-badge-date">19/05</span>
+                            <span class="ev-card-badge ev-card-badge-type">Có phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Thể thao</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">GIẢI CHẠY ĐÊM THÀNH PHỐ BIỂN</a></h2>
+                            <p class="ev-card-meta">19/05 · 05:00</p>
+                            <p class="ev-card-location">Công viên Biển Đông, Đà Nẵng</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">920/1200</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 76.67%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="https://images.tkbcdn.com/2/608/332/ts/ds/3e/bb/d4/2d72f27d8a1273bed60ea05f408cccda.jpg" alt="Lễ hội ẩm thực đường phố Sài Gòn">
+                            <span class="ev-card-badge ev-card-badge-date">22/05</span>
+                            <span class="ev-card-badge ev-card-badge-type">Có phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Ẩm thực</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">LỄ HỘI ẨM THỰC ĐƯỜNG PHỐ SÀI GÒN</a></h2>
+                            <p class="ev-card-meta">22/05 · 17:00</p>
+                            <p class="ev-card-location">Nhà Văn hóa Thanh Niên, TP. Hồ Chí Minh</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">740/1000</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 74%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="https://i.pinimg.com/1200x/98/b6/2e/98b62ec31bc387741af0573737611501.jpg" alt="Talk AI cho người mới bắt đầu">
+                            <span class="ev-card-badge ev-card-badge-date">24/05</span>
+                            <span class="ev-card-badge ev-card-badge-type">Miễn phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Công nghệ</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">TALK AI CHO NGƯỜI MỚI BẮT ĐẦU</a></h2>
+                            <p class="ev-card-meta">24/05 · 20:00</p>
+                            <p class="ev-card-location">Online</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">560/700</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 80%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="https://i.pinimg.com/736x/7f/20/a0/7f20a0a5cebb7a3fe6a86dd07d8b60be.jpg" alt="Triển lãm tranh màu nước miền Trung">
+                            <span class="ev-card-badge ev-card-badge-date">26/05</span>
+                            <span class="ev-card-badge ev-card-badge-type">Có phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Nghệ thuật</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">TRIỂN LÃM TRANH MÀU NƯỚC MIỀN TRUNG</a></h2>
+                            <p class="ev-card-meta">26/05 · 09:00</p>
+                            <p class="ev-card-location">Bảo tàng Mỹ thuật, Đà Nẵng</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">180/400</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 45%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="https://images.tkbcdn.com/2/608/332/Upload/eventcover/2024/03/18/437B6C.jpg" alt="Đêm hài cuối tuần Hà Nội">
+                            <span class="ev-card-badge ev-card-badge-date">28/05</span>
+                            <span class="ev-card-badge ev-card-badge-type">Có phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Hài kịch</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">ĐÊM HÀI CUỐI TUẦN HÀ NỘI</a></h2>
+                            <p class="ev-card-meta">28/05 · 20:00</p>
+                            <p class="ev-card-location">Cung Văn hóa Hữu nghị, Hà Nội</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">390/500</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 78%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ev-card">
+                        <a href="event-detail.html" class="ev-card-media">
+                            <img src="https://images.tkbcdn.com/2/608/332/ts/ds/13/b2/04/80cd572dcb5299e9ae59fabfae234a95.jpg" alt="Đêm nhạc acoustic bên sông Hàn">
+                            <span class="ev-card-badge ev-card-badge-date">30/05</span>
+                            <span class="ev-card-badge ev-card-badge-type">Có phí</span>
+                        </a>
+
+                        <div class="ev-card-body">
+                            <span class="ev-card-category">Ca nhạc</span>
+                            <h2 class="ev-card-title"><a href="event-detail.html">ĐÊM NHẠC ACOUSTIC BÊN SÔNG HÀN</a></h2>
+                            <p class="ev-card-meta">30/05 · 19:30</p>
+                            <p class="ev-card-location">Cầu Rồng, Đà Nẵng</p>
+
+                            <div class="ev-card-bottom">
+                                <div class="ev-card-progress-area">
+                                    <p class="ev-card-progress-text">510/700</p>
+                                    <div class="ev-card-progress">
+                                        <span class="ev-card-progress-fill" style="width: 72.86%;"></span>
+                                    </div>
+                                </div>
+
+                                <a href="event-detail.html" class="ev-card-link">
+                                    <span>Xem</span>
+                                    <span aria-hidden="true">&#8594;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <nav class="ev-pagination" aria-label="Phân trang sự kiện">
+                    <a href="#" class="ev-page-arrow" aria-label="Trang trước">&#10094;</a>
+                    <a href="#" class="ev-page-number active">1</a>
+                    <a href="#" class="ev-page-number">2</a>
+                    <a href="#" class="ev-page-number">3</a>
+                    <span class="ev-page-dots">…</span>
+                    <a href="#" class="ev-page-number">12</a>
+                    <a href="#" class="ev-page-arrow" aria-label="Trang sau">&#10095;</a>
+                </nav>
+            </section>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-column footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <span class="logo-box"></span>
+                    <span class="logo-text">EventHub</span>
+                </a>
+                <p>Nền tảng kết nối sự kiện hàng đầu Việt Nam. Tìm kiếm, đăng ký và tổ chức sự kiện của bạn một cách dễ dàng.</p>
+                <div class="social-list">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Khám phá</h3>
+                <ul>
+                    <li><a href="events.html">Tất cả sự kiện</a></li>
+                    <li><a href="events.html">Sự kiện miễn phí</a></li>
+                    <li><a href="events.html">Sự kiện online</a></li>
+                    <li><a href="events.html">Gần tôi</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Tổ chức</h3>
+                <ul>
+                    <li><a href="organizer-create.html">Tạo sự kiện</a></li>
+                    <li><a href="organizer-solutions.html">Giải pháp doanh nghiệp</a></li>
+                    <li><a href="guide.html">Hướng dẫn</a></li>
+                    <li><a href="service-price.html">Giá dịch vụ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Hỗ trợ</h3>
+                <ul>
+                    <li><a href="help-center.html">Trung tâm trợ giúp</a></li>
+                    <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                    <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy;2026 EventHub. All rights reserved.</p>
+            <p>Được xây dựng bởi &#128155; Việt Nam</p>
+        </div>
+    </footer>
+    <script src="events.js"></script>
+</body>
+</html>

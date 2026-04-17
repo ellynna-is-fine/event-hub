@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Sự Kiện</title>
+            <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+* {
+    box-sizing: border-box;
+}
+
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .header-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-box {
+        flex: 1 1 100%;
+        max-width: 100%;
+        order: 3;
+        width: 100%;
+    }
+
+    .header-actions {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        position: static;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav a,
+    .login-button {
+        font-size: 14px;
+    }
+}
+@media (max-width: 900px) {
+    .nav-dienthongtin {
+        margin: 0 20px 20px 20px;
+        font-size: 11px;
+    }
+    .nhapthongtin {
+        margin: 0 20px;
+    }
+    .nextback {
+        margin: 15px 20px 0 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .nav-dienthongtin {
+        margin: 0 8px 20px 8px;
+        flex-wrap: wrap;  
+        font-size: 12px;
+    }
+    .nav-dienthongtin a {
+        flex: 1 1 50%;   
+    }
+    .nhapthongtin {
+        margin: 0 12px;
+    }
+    .pick {
+        grid-template-columns: 1fr; 
+        column-gap: 0;
+    }
+    .nextback {
+        margin: 15px 12px 0 12px;
+    }
+}
+.gioithieu {
+    margin: 20px 0 20px 50px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.gioithieu .item1-gioithieu {
+    font-size: 20px; color: #e9728d;
+    font-weight: bold;
+}
+.gioithieu .item2-gioithieu {
+    font-size: 12px; font-weight: bold;
+}
+.nav-dienthongtin{
+    display: flex; align-items: stretch;     align-self: center; text-align: center; flex-basis: 100%;
+    margin: 0 100px 20px 100px; justify-content: center;
+    flex-wrap: wrap; gap: 16px;
+    height: auto; min-height: 35px;
+    outline: 2px solid #e9728d; outline-offset: 2px;
+    font-weight: bold; font-size: 13px; word-break: break-word;
+    line-height: 1.3;
+}
+.nav-dienthongtin a{
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 6px 4px; min-width: 0;     
+}
+.item-nav-dienthongtin-active{
+    background-color: #e9728d; color: white; display: flex; align-items: center; justify-content: center;
+
+}
+.item-nav-dienthongtin-nonactive{
+    display: flex; align-items: center; justify-content: center;
+}
+.item-nav-dienthongtin-active:hover{
+    background-color: white; color: #e9728d;
+}
+.item-nav-dienthongtin-nonactive:hover{
+    background-color: #e9728d; color: white;
+}
+.nhapthongtin{
+    margin: 0 110px 0 110px;
+}
+.tieude{
+    font-weight: bold;
+}
+.input{
+    border: none; background: none; width: 100%; height: 30px;
+    outline: 2px solid #e9728d; border-radius: 8px; margin-top: 5px; margin-bottom: 10px;
+    padding-left: 20px;
+}
+.inputspecial {
+    height: auto; background: none; border: none; width: 100%;    outline: 2px solid #e9728d; border-radius: 8px; margin-top: 5px; margin-bottom: 10px;
+    min-height: 80px;  
+    resize: vertical; 
+    padding: 10px 20px; 
+}
+.pick{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 60px;
+}
+.nextback{
+    display: flex; flex-basis: 100%; margin: 15px 100px 0 100px;
+    align-items: center;justify-content: space-between;
+    margin-bottom: 20px;
+}
+.next{
+    background-color: #e9728d; color: white; font-weight: bold;
+    padding: 5px 10px 5px 10px; border-radius: 8px;
+}
+.back{
+    color: #e9728d; font-weight: bold;
+    padding: 5px 10px 5px 10px; border-radius: 8px;
+    border: 2px solid #e9728d;
+}
+.back:hover{
+    transform: scale(1.05); transition: 0.3s;
+}
+.next:hover{
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.nav-button:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.nav-my-events:hover{
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.login-button:hover{
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.file{
+    border: 2px dashed #e9728d; margin: 30px 110px 10px 110px;
+    padding: 80px; text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html"> <img class="logo" src="LOGO Web thiết kế sự kiện2.png">
+        </a>
+
+        <form class="search-box" action="events.html" method="get">
+            <input type="search" name="keyword" placeholder="Tìm kiếm sự kiện, địa điểm...">
+            <button type="submit">&#128269;</button>
+        </form>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a class="nav-button" href="events.html">Sự kiện</a></li>
+                <li><a class="nav-button active" href="organizer-create.html">Tạo sự kiện</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#" aria-label="Thông báo">
+                <img class="icon-button notice-button" src="Chuông.png">
+            </a>
+            <a href="login.html" class="login-button">Đăng nhập</a>
+            <div class="language-switch">
+                <a href="#" class="icon-button highlight" aria-label="Ngôn ngữ" style="color: yellow;">&#9733;</a>
+                <span class="language-caret" style="font-size: 30px;">&#9662;</span>
+            </div>
+        </div>
+    </div>
+</header>
+    <div class="gioithieu">
+        <div class="item1-gioithieu">Tạo Sự kiện mới</div>
+        <div class="item2-gioithieu">Điền thông tin để đăng sự kiện lên EventHub</div>
+    </div>
+
+    <nav class="nav-dienthongtin">
+        <a href="organizer-create.html" class="item-nav-dienthongtin-nonactive">1. Thông tin cơ bản</a>
+        <a href="organizer2-create.html" class="item-nav-dienthongtin-active">2. Ảnh & Mô tả</a>
+        <a href="organizer3-create.html" class="item-nav-dienthongtin-nonactive">3. Thông tin vé</a>
+        <a href="organizer4-create.html" class="item-nav-dienthongtin-nonactive">4. Xác nhận</a>
+    </nav>
+
+    <div class="file" onclick="document.getElementById('fileInput').click()"> 
+        <div style="font-size: 20px;">Kéo thả hoặc click để tải ảnh banner sự kiện </div>
+        <div style="font-size: 14px;">PNG, JPG tối đa 5MB · Kích thước khuyến nghị 1200×630px</div>
+        <input type="file" id="fileInput" hidden>
+    </div>
+
+
+   <div class="nhapthongtin">
+        <label class="tieude">Mô tả ngắn *</label> <br>
+        <input class="input" id="event-short-desc" type="text" placeholder="Mô tả ngắn gọn về sự kiện (hiển thị trong thẻ sự kiện)">
+
+        <label class="tieude">Mô tả đầy đủ *</label> <br>
+        <textarea class="inputspecial" id="event-full-desc" placeholder="Mô tả chi tiết sự kiện, diễn giả, nội dung chương trình ..."></textarea>
+
+        <label class="tieude">TAGS (phân cách bằng dấu phẩy)</label> <br>
+        <input class="input" id="event-tags" type="text" placeholder="VD: AI, Cloud, Startup, Networking">
+   </div>
+
+        <hr style="margin: 10px 80px 10px 80px; border: none; border-top: 2px solid #e9728d;">
+        <div class="nextback">
+            <a href="organizer-create.html" class="back">Quay lại</a>
+            <a href="organizer3-create.html" class="next">Tiếp theo</a>
+        </div>
+        <script src="organizer.js"></script>
+</body>
+</html>

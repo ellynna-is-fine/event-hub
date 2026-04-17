@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .box-left {
+            flex: 7;
+            background-color: #e9728d;
+            color: white;
+            padding: 70px;
+            background-image: url(Demo_Thiết_Kế_Web-removebg-preview.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            min-width: 300px ;
+            position: relative;
+            overflow: hidden;   
+        }
+
+        .box-left::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url(Demo_Thiết_Kế_Web-removebg-preview.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: blur(20px);  
+            z-index: 0;
+        }
+
+        .box-left > * {
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+        .box-right {
+            flex: 3;
+            background-color: #f6f3ee;
+            color: white;
+            min-width: 200px;
+            padding: 20px 30px 20px 30px;
+        }
+
+        .rightheader{
+            display: flex;
+            flex-basis: 100%; 
+            color: black;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 13px; align-items: center; margin-bottom: 20px;
+        }
+        .rightheader:hover{
+            transform: scale(1.05); transition: 0.3s;
+        }
+
+        nav{
+            flex-basis: 100%;
+            margin: 10px; height: 30px;
+            display: flex;justify-content: center;border-radius: 8px;
+            outline: 2px solid #e9728d;
+            outline-offset: 1px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px;
+            font-weight: bold;
+        }
+
+        nav a{
+            padding: 5px;
+            overflow: auto;
+            text-decoration: none;
+            color: black; flex-basis: auto; flex: 1;
+            text-align: center; align-self: center;
+            }
+        nav a.nonactive:hover {
+            background-color: #e9728d;
+            color: white; border-radius: 8px;
+            }
+        nav a.active{
+            background-color: #e9728d;
+            color: white;
+            border-radius: 8px;
+        }
+        nav a.active:hover{
+            background-color: white;
+            color: #e9728d;
+        }
+        .chaomung {
+            margin-top: 20px;
+        }
+        .gioithieu{
+            font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        .phuongthucdangnhap{
+            display: flex;
+            align-items: center;
+            margin: 25px;
+            justify-content: space-between;
+            padding-left: 20px;
+            padding-right: 20px;
+            gap: 10px;
+        }
+        .img-wrapper{
+            width: 200px; border-radius: 12px;
+            height: 60px;overflow: hidden;
+        }
+        .img-wrapper img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .img-wrapper img:hover{
+            transform: scale(1.05); transition: 0.3s;
+        }
+        .formdangnhap{
+            font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: none;
+        }
+        .divider{
+            align-items: center;
+            text-align: center;
+            color: black;
+            margin: 20px 20px 10px 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 12px;
+            border-bottom: 1px solid #e9728d; padding: 5px;
+        }
+        .input{
+            border: none; background: none;
+            outline: 2px solid #e9728d; outline-offset: 2px;
+            border-radius: 6px; width: 100%; height: 35px; 
+            margin-top: 10px; margin-bottom: 15px; padding-left: 20px;
+        }
+        input[type="checkbox"]{
+                width: 16px;cursor: pointer; accent-color: #e9728d;
+                height: 16px;margin-right: 8px;
+        }
+        .dangnhap{
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 20px;
+            height: 50px; font-weight: bold; background-color: #e9728d; color: white;
+            text-decoration: none;
+            flex-basis: 100%;
+            text-align: center;margin-top: 10px;
+            border-radius: 12px;
+        }
+        .dangnhap:hover{
+            background-color: white;
+            transform: scale(1.05); transition: 0.3s; color: #e9728d;
+        }
+
+        .dieukhoan{
+            margin-top: 15px; color: black;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 13px; text-align: center;
+        }
+        .taotaikhoan{
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 13px; text-align: center;
+            color: black; margin-top: 20px;
+        }
+
+        .logo-container{
+            display: flex;
+            margin-top: 0px;
+            height: 60px; width: auto;
+        }
+        .khamphasukien{
+            font-family: 'UTM Loko', sans-serif;
+            font-weight: bold;
+            margin-top: 40px;
+            color: black;
+            font-size: 40px;letter-spacing: 0.1em;
+        }
+        .khamphasukien2{
+            color: black; margin-top: 10px; font-size: 20px;
+        }
+        .remind{
+            display: flex; margin-top: 20px;
+            flex-direction: column; flex-wrap: wrap; font-size: 20px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            
+        }
+        .item-remind{
+            background-color: rgba(248, 230, 213, 0.76); color: black;
+            margin: 5px;padding-top: 20px; padding-bottom: 20px; padding-left: 30px;
+            border-radius: 12px; max-width: 500px; width: 100%;
+        }
+        @font-face {
+        font-family: 'UTM Loko';
+        src: url('UTM-Loko.ttf') format('truetype');
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="box-left">
+            <div class="bgleft">
+            </div>
+                <a href="index.html"><img src="LOGO Web thiết kế sự kiện2.png" class="logo-container"></a>
+            
+            <div class="khamphasukien">KHÁM PHÁ THẾ GIỚI
+            <br>
+            <a href="#" style="color: #b22d27; text-decoration: none;"> SỰ KIỆN</a> KHÔNG GIỚI HẠN
+            </div>
+
+            <div class="khamphasukien2">
+                Hàng nghìn sự kiện đang chờ bạn khám phá.
+                <br>
+                Tạo tài khoản miễn phí ngay hôm nay.
+            </div>
+
+            <div class="remind">
+                <div class="item-remind"><strong>Đặt vé chỉ trong 30 giây</strong>
+                <br>Quy trình đơn giản, vé gửi ngay qua email</div>
+
+                <div class="item-remind"><strong>Nhắc lịch tự động</strong>
+                <br>Không bao giờ bỏ lỡ sự kiện yêu thích</div>
+
+                <div class="item-remind"><strong>Dashboard quản lý</strong>
+                <br>Tổ chức & theo dõi sự kiện của bạn dễ dàng</div>
+            </div>
+        </div>
+        <div class="box-right">
+            <header class="rightheader"><a href="index.html" style="color: black; text-decoration: none;">← Quay lại trang chủ</a></header>
+            
+            <nav>
+            <a href="login.html" class="active">Đăng nhập</a>
+            <a href="register.html" class="nonactive">Tạo tài khoản</a>
+            </nav>
+
+        <div class="gioithieu">
+            <h2 class="chaomung" style="color: #e9728d;">Chào mừng trở lại!</h2>
+            <p style="color: black; margin-top: 8px; font-size: 12px;">Đăng nhập để tiếp tục khám phá sự kiện</p>
+        </div>
+
+        <div class="phuongthucdangnhap">
+            <div class="img-wrapper"><a href="https://www.facebook.com/login" target="_blank"><img src="https://i.pinimg.com/1200x/e9/bd/3e/e9bd3e8db9369cdc5417122aa88784eb.jpg"></a></div>
+            <div class="img-wrapper"><a href="https://accounts.google.com/signin" target="_blank"><img src="https://i.pinimg.com/1200x/ff/6b/7e/ff6b7eb7c752e3161fe02ec36ede8bbd.jpg"></a></div>
+        </div>
+
+        <div class="divider">hoặc đăng nhập bằng email</div>
+
+        <div class="formdangnhap">
+            <form>
+                <label style="color: black; margin-left:5px;"><strong>Email</strong></label>
+                <br>
+                <input class="input" id="email" type="email" placeholder="your@gmail.com" >
+                <br>
+                <label style="color: black; margin-left:5px;"><strong>Mật Khẩu</strong></label>
+                <br>
+                <input class="input" id="password" type="password" placeholder="Nhập mật khẩu" >
+                
+                <p style="color: #e9728d; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 12px; text-align: right; text-decoration: underline;">
+                    <a href="#" style="text-decoration: none; color: #e9728d;">Quên mật khẩu</a> </p>
+                <input type="checkbox"><span style="color: #e9728d;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 15px;">Ghi nhớ đăng nhập</span>
+            </form>
+
+        <div onclick="if(validateForm()) { alert('Đăng nhập thành công!'); window.location.href='index.html'; }" class="dangnhap">Đăng Nhập</div></a>
+
+            <div class="dieukhoan">Bằng cách đăng nhập, bạn đồng ý với <a href="#" style="color: #e9728d;">Điều khoản dịch vụ</a>  và <a href="#" style="color: #e9728d;">Chính sách bảo mật</a> </div>
+            <div class="taotaikhoan">Chưa có tài khoản <a href="register.html" style="color: #e9728d;">Tạo tài khoản miễn phí</a></div>
+        </div>
+        <script src="login.js"></script>
+</body>
+</html>
