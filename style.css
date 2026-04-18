@@ -437,6 +437,8 @@ ul {
 
 .footer-logo {
     margin-bottom: 14px;
+    width: 200px;
+    height: auto;
 }
 
 .footer-column h3 {
